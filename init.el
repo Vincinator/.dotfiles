@@ -25,15 +25,61 @@
 (require 'setup-helm)
 (require 'setup-helm-gtags)
 
+
+;; == CEDET
+
+(require 'cc-mode)
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+
+(semantic-mode 1)
+
+;; == function-args
+(fa-config-default)
+
+
 ;; == NeoTree
 (require 'neotree)
 
+;; == speedbar sr
+(require 'sr-speedbar)
+
+
+;; == shell-pop
+(require 'shell-pop)
+
+
+;; ==== Startup Config
+(setq inhibit-startup-screen t)
+
+
 
 ;; ==== Keybindings
+;; == Window resize keys
+(global-set-key (kbd "<C-up>") 'shrink-window)
+(global-set-key (kbd "<C-down>") 'enlarge-window)
+(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
+;; == open terminal (shell-pop)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(shell-pop-default-directory "/home/vincent/")
+ '(shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
+ '(shell-pop-term-shell "/bin/zsh")
+ '(shell-pop-universal-key "C-1")
+ '(shell-pop-window-size 30)
+ '(shell-pop-full-span t)
+ '(shell-pop-window-position "bottom"))
+
 
 ;; == NeoTree
 (global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
@@ -51,10 +97,17 @@
 (global-set-key [(super l)]  'windmove-right)
 
 
+;; == Sr-Speedbar
+(define-key speedbar-mode-map (kbd "TAB") 'speedbar-edit-line)
+
 ;; ==== Style
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; NeoTree
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -68,7 +121,8 @@
     ("d3cf4dfbff156bdd42c874c48b35cd86a204934ee6ddb3462ab9d9ea4d5a0775" "e03d2f414fb109f3920752b10b92323697174f49d577da9e69979edbb147a921" default)))
  '(package-selected-packages
    (quote
-    (sublimity zenburn-theme helm-gtags helm-projectile use-package helm-ack helm linum-relative evil))))
+    (shell-pop projectile-speedbar sr-speedbar function-args ggtags 0blayout sublimity zenburn-theme helm-gtags helm-projectile use-package helm-ack helm linum-relative evil)))
+ '(semantic-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
