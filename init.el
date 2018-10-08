@@ -88,32 +88,6 @@
 (global-set-key (kbd "<C-down>") 'enlarge-window)
 (global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
-;; == open terminal (shell-pop)
-
-(custom-set-variables
- ;; If there is more than
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes
-   (quote
-    ("d3cf4dfbff156bdd42c874c48b35cd86a204934ee6ddb3462ab9d9ea4d5a0775" "e03d2f414fb109f3920752b10b92323697174f49d577da9e69979edbb147a921" default)))
- '(package-selected-packages
-   (quote
-    (ace-window helm-fuzzy-find shell-pop projectile-speedbar sr-speedbar function-args ggtags 0blayout sublimity zenburn-theme helm-gtags helm-projectile use-package helm-ack helm linum-relative evil)))
- '(semantic-mode t)
- '(shell-pop-default-directory "/home/vincent/")
- '(shell-pop-full-span t)
- '(shell-pop-shell-type
-   (quote
-    ("ansi-term" "*ansi-term*"
-     (lambda nil
-       (ansi-term shell-pop-term-shell)))))
- '(shell-pop-term-shell "/bin/zsh")
- '(shell-pop-universal-key "C-1")
- '(shell-pop-window-position "bottom")
- '(shell-pop-window-size 30))
-
 
 ;; == NeoTree
 (global-set-key [f8] 'neotree-toggle)
@@ -135,7 +109,6 @@
 
 
 ;; == Magit
-
 (require 'evil-magit)
 
 
@@ -187,3 +160,4 @@
  '(shell-pop-universal-key "C-1")
  '(shell-pop-window-position "bottom")
  '(shell-pop-window-size 30))
+
