@@ -39,9 +39,6 @@
 (setq projectile-enable-caching t)
 (helm-projectile-on)
 
-
-
-
 ;; == CEDET
 
 (require 'cc-mode)
@@ -58,6 +55,8 @@
 
 ;; == NeoTree
 (require 'neotree)
+(add-hook 'neo-after-create-hook
+	  (lambda (&rest _) (display-line-numbers-mode -1)))
 
 ;; == speedbar sr
 (require 'sr-speedbar)
@@ -74,6 +73,9 @@
 
 ;; ==== Startup Config
 (setq inhibit-startup-screen t)
+
+(global-display-line-numbers-mode)
+
 
 (add-hook 'dired-mode-hook
       (lambda ()
