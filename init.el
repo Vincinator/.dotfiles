@@ -136,7 +136,7 @@
 
 ;; == Magit
 
-
+(require 'evil-magit)
 
 
 ;; == Sr-Speedbar
